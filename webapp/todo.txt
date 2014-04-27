@@ -1,0 +1,7 @@
+session : fixer durée de session, gérer si session=null, ou rendre sessionless et tout passer en param GET ?
+mettre en jsp:include common les parties IHM communes
+faire le file upload des photos
+faire une authent par password lors de la création d'un tournoi, pour accéder aux parties admin : dans les pages existantes, et dans les actions
+
+"client first + mobile first", l'admin vient ensuite (avoir la même vue que tout le monde, avec quelques actions en plus )
+
