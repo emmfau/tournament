@@ -25,10 +25,12 @@
         }
     %>
     <% } else { %>
-    <p>Vous etes en mode administration.</p>
+    <p>Vous etes en mode administration. Des boutons rouges sont maintenant présents dans les différentes pages pour
+        accéder aux fonctionnalités avancées.</p>
     <a href="adminDisable.jsp">
         <button class="btn btn-danger">Désactiver</button>
     </a>
     <% } %>
 </div>
+
 <jsp:include page="footer.jsp"/>

@@ -11,8 +11,19 @@
 
 </script>
 
-<h1>Groupes de qualification</h1>
-
+<h1>
+    Groupes de qualification
+    <% if (session.getAttribute("admin") != null) { %>
+    <a href="qualifEdit.jsp">
+        <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-pencil"></span>
+        </button>
+    </a>
+    <a href="qualifGroupsEdit.jsp">
+        <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-th-large"></span>
+        </button>
+    </a>
+    <% } %>
+</h1>
 
 <%
     String tournamendId = (String) session.getAttribute("tournamentId");
@@ -86,4 +97,12 @@
 <%
     }
 %>
+
+<% if (tn.getQualifGroups().size() == 0) { %>
+<div class="alert alert-warning alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Info</strong> Aucun groupe de qualification n'est créé pour le moment.
+</div>
+<% } %>
+
 <jsp:include page="footer.jsp"/>

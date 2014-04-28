@@ -12,6 +12,7 @@ public class Group {
             return t2.getTeamPoints().points - t1.getTeamPoints().points; // Descending order
         }
     };
+
     String id = UUID.randomUUID().toString();
     List<String> teamsIds = new ArrayList<String>();
     List<Match> matchs = new ArrayList<Match>();

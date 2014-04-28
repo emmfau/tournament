@@ -69,21 +69,26 @@
             <input type="text" name="phone" class="form-control" value="<%=team.getPhone()%>"/>
         </div>
         <div class="form-group">
-            <label for="photo">Photo</label>
-            <input type="text" name="photo" class="form-control" value="<%=team.getPhoto()%>"/>
-        </div>
-        <div class="form-group">
             <label for="state">Etat</label>
             <input type="text" name="state" class="form-control" value="<%=team.getState()%>"/>
         </div>
         <button type="submit" class="btn btn-danger">Enregistrer</button>
     </form>
     <% if (!isNew) { %>
+    <% if (tn.getQualifGroups().size() == 0) { // tant que les qualifs n'ont pas commencé %>
+    <br/><br/>
     <a href="javascript:teamRemove('<%=team.getId()%>')">
         <button class="btn btn-danger">Supprimer</button>
     </a>
-    <% } %>
+    <% } else { %>
+    <br/><br/>
 
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Info</strong> Il n'est plus possible de supprimer une équipe car il existe des groupes de qualification.
+    </div>
+    <% } %>
+    <% } %>
 
 </div>
 <br/>

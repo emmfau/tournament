@@ -21,27 +21,27 @@ public class Tournament {
     // All teams
     List<Team> teams = new ArrayList<Team>();
 
-    // Qualif phase
+    // Qualif phase : default params for 24 teams
     List<Group> qualifGroups = new ArrayList<Group>();
-    int qualifNbGroups;
-    int qualifNbTeamsPerGroup;
-    int qualifNbHeadersPerGroup;
-    int qualifNbGrounds;
-    Date qualifStartTime;
-    int qualifMatchTime; // mn
-    int qualifPauseTime; // mn
-    int qualifPointsForVictory;
-    int qualifPointsForNull;
-    int qualifPointsForDefeat;
+    int qualifNbGroups = 6;
+    int qualifNbTeamsPerGroup = 4;
+    int qualifNbHeadersPerGroup = 1;
+    int qualifNbGrounds = 3;
+    String qualifStartTime = "20:00"; //hh:mm format
+    int qualifMatchTime = 10; // mn
+    int qualifPauseTime = 3; // mn
+    int qualifPointsForVictory = 3;
+    int qualifPointsForNull = 1;
+    int qualifPointsForDefeat = 0;
 
-    // Final phase params
+    // Final phase params : default params for 2 finals (principal, consolante)
     List<Group> finalGroups = new ArrayList<Group>();
-    int finalNbGroups;
-    int finalNbTeamsPerGroup;
-    int finalNbGrounds;
-    Date finalStartTime;
-    int finalMatchTime;
-    int finalPauseTime;
+    int finalNbGroups = 2;
+    int finalNbTeamsPerGroup = 12;
+    int finalNbGrounds = 3;
+    String finalStartTime = "23:00"; //hh:mm format
+    int finalMatchTime = 12;
+    int finalPauseTime = 3;
 
     public static List<Tournament> listAll() {
         OObjectDatabaseTx db = Db.instance().get();
@@ -117,13 +117,6 @@ public class Tournament {
         this.qualifNbGrounds = qualifNbGrounds;
     }
 
-    public Date getQualifStartTime() {
-        return qualifStartTime;
-    }
-
-    public void setQualifStartTime(Date qualifStartTime) {
-        this.qualifStartTime = qualifStartTime;
-    }
 
     public int getQualifMatchTime() {
         return qualifMatchTime;
@@ -189,11 +182,19 @@ public class Tournament {
         this.finalNbGrounds = finalNbGrounds;
     }
 
-    public Date getFinalStartTime() {
+    public String getQualifStartTime() {
+        return qualifStartTime;
+    }
+
+    public void setQualifStartTime(String qualifStartTime) {
+        this.qualifStartTime = qualifStartTime;
+    }
+
+    public String getFinalStartTime() {
         return finalStartTime;
     }
 
-    public void setFinalStartTime(Date finalStartTime) {
+    public void setFinalStartTime(String finalStartTime) {
         this.finalStartTime = finalStartTime;
     }
 
