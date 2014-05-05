@@ -1,4 +1,5 @@
 <%@page import="fr.nacvolley.tournament.model.Team,fr.nacvolley.tournament.model.Tournament" %>
+<%@ page import="fr.nacvolley.tournament.util.Randomizer" %>
 <jsp:include page="header.jsp"/>
 
 <%
@@ -37,8 +38,12 @@
         <input type="hidden" name="isNew" value="true"/>
         <% } %>
         <div class="form-group">
-            <label for="name">Nom</label>
+            <label for="name">Nom de l'équipe</label>
             <input type="text" name="name" class="form-control" value="<%=team.getName()%>"/>
+
+            <p>Idées de noms d'équipe aléatoire : <%=Randomizer.randomTeamName()%>, <%=Randomizer.randomTeamName()%>
+                , <%=Randomizer.randomTeamName()%>
+            </p>
         </div>
         <div class="form-group">
             <label for="captainName">Prénom nom du capitaine</label>
@@ -61,7 +66,7 @@
             <input type="text" name="email" class="form-control" value="<%=team.getEmail()%>"/>
         </div>
         <div class="form-group">
-            <label for="level">Niveau de jeu ( 1 = amateur, 10 = pro )</label>
+            <label for="level">Niveau de jeu ( 1 = débutant, 10 = pro )</label>
             <input type="text" name="level" class="form-control" value="<%=team.getLevel()%>"/>
         </div>
         <div class="form-group">

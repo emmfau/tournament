@@ -12,42 +12,56 @@
 </script>
 
 <h1>
-    Groupes de qualification
+    Qualifications : groupes
     <% if (session.getAttribute("admin") != null) { %>
+    <br/>
     <a href="qualifEdit.jsp">
-        <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-pencil"></span>
+        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span>
+            Paramètrage
         </button>
     </a>
+
     <a href="qualifGroupsEdit.jsp">
-        <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-th-large"></span>
+        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-asterisk"></span>
+            Créer groupes
         </button>
     </a>
     <% } %>
 </h1>
 
-<%
-    String tournamendId = (String) session.getAttribute("tournamentId");
-    Tournament tn = Tournament.load(tournamendId);
-    for (Group group : tn.getQualifGroups()) {
-%>
-<h2>Groupe <%=tn.getQualifGroups().indexOf(group)%>
-</h2>
 <table class="table table-striped table-condensed">
-    <thead>
-    <tr>
-        <th>Equipe</th>
-        <th>PTS</th>
-        <th>MJ</th>
-        <th>MG</th>
-        <th>MN</th>
-        <th>MP</th>
-        <th>P+</th>
-        <th>P-</th>
-        <th>D</th>
 
-    </tr>
-    </thead>
     <tbody>
+
+    <%
+        String tournamendId = (String) session.getAttribute("tournamentId");
+        Tournament tn = Tournament.load(tournamendId);
+        for (Group group : tn.getQualifGroups()) {
+    %>
+    <tr>
+        <td>
+
+            <h3>
+                <span class="label label-success">Groupe <%=tn.getQualifGroups().indexOf(group) + 1%></span>
+            </h3>
+        </td>
+        <td style="vertical-align:bottom;">PTS
+        </th>
+        <td style="vertical-align:bottom;">MJ
+        </th>
+        <td style="vertical-align:bottom;">MG
+        </th>
+        <td style="vertical-align:bottom;">MN
+        </th>
+        <td style="vertical-align:bottom;">MP
+        </th>
+        <td style="vertical-align:bottom;">P+
+        </th>
+        <td style="vertical-align:bottom;">P-
+        </th>
+        <td style="vertical-align:bottom;">D
+        </th>
+    </tr>
     <%
         // RÃ©cupÃ©rer les Ã©quipes et calculer leurs points
         List<Team> teams = new ArrayList<Team>();
@@ -66,6 +80,9 @@
     <tr>
         <td>
             <%=team.getName()%>
+            <% if (session.getAttribute("admin") != null) { %>
+            <span class="badge alert-danger"><%=team.getLevel()%></span>
+            <% } %>
         </td>
         <td class="success"><strong><%=team.getTeamPoints().points%>
         </strong></td>
@@ -90,13 +107,13 @@
         }
     %>
 
+    <%
+        }
+    %>
 
     </tbody>
 </table>
 
-<%
-    }
-%>
 
 <% if (tn.getQualifGroups().size() == 0) { %>
 <div class="alert alert-warning alert-dismissable">

@@ -7,9 +7,12 @@
 
 </script>
 
-<h1>Equipes</h1>
+<h1>
+    Equipes
 
-<table class="table">
+</h1>
+
+<table class="table table-striped">
 
     <tbody>
     <%
@@ -18,7 +21,10 @@
         for (Team team : tn.getTeams()) {
     %>
     <tr>
-        <td align="center">
+        <td>
+            <h3><span class="label label-info"><%=tn.getTeams().indexOf(team) + 1%></span></h3>
+        </td>
+        <td>
             <%
                 String teamPhotoFileName = team.getPhoto();
                 if (teamPhotoFileName != null && !teamPhotoFileName.equals("")) {
@@ -27,20 +33,17 @@
             <% } else { %>
             <a href="images/team.jpg"><img src="images/team-thumb.jpg"/></a>
             <% } %>
-            <br/>
-
-            <h3><a href="javascript:teamView('<%=team.getId()%>')"><%=team.getName()%>
-            </a></h3>
         </td>
         <td>
+            <h3><a href="javascript:teamView('<%=team.getId()%>')"><%=team.getName()%>
+            </a></h3>
             <h5>
                 <strong><span class="glyphicon glyphicon-user"></span> <%=team.getCaptainName()%>
-                </strong><br/>
-                &nbsp;&nbsp;&nbsp;+&nbsp;<%=team.getPlayersNames()%><br/><br/>
-                <span class="glyphicon glyphicon-map-marker"></span> <%=team.getClub()%><br/><br/>
-                <a href="tel:<%=team.getPhone()%>"><span
-                        class="glyphicon glyphicon-phone-alt"></span> <%=team.getPhone()%>
-                </a><br/>
+                </strong> + <%=team.getPlayersNames()%><br/>
+                <span class="glyphicon glyphicon-map-marker"></span> <%=team.getClub()%><br/>
+                <a href="tel:<%=team.getPhone()%>"><span>
+                        <span class="glyphicon glyphicon-phone-alt"></span> <%=team.getPhone()%>
+                </a>
             </h5>
         </td>
         <td>
@@ -66,5 +69,13 @@
 <a href="teamEdit.jsp">
     <button class="btn btn-danger">Créer</button>
 </a>
+
+<a href="#teamCreated"><br/><br/></a>
+
+<a href="teamCreateRandom.jsp">
+    <button type="button" class="btn btn-danger">Créer une équipe aléatoire</button>
+</a>
+<br/><br/>
 <% } %>
+
 <jsp:include page="footer.jsp"/>

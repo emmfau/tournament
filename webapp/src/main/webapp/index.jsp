@@ -22,40 +22,58 @@
     }
 
 </script>
-<h1>Tous les tournois !</h1>
+<div class="container">
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Nom</th>
-        <th>Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <%
-        List<Tournament> tns = Tournament.listAll();
+    <h1>Liste de tous les tournois</h1>
 
-        for (Tournament tn : tns) {
-    %>
-    <tr>
-        <td>
-            <a href="javascript:tournament('<%=tn.getId()%>')">
-                <%=tn.getName()%>
-            </a>
-        </td>
-        <td><%=tn.getDate()%>
-        </td>
-        <td>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Date de création</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            List<Tournament> tns = Tournament.listAll();
 
-        </td>
-    </tr>
-    <%
-        }
-    %>
-    </tbody>
-</table>
+            for (Tournament tn : tns) {
+        %>
+        <tr>
+            <td>
+                <a href="javascript:tournament('<%=tn.getId()%>')">
+                    <%=tn.getName()%>
+                </a>
+            </td>
+            <td><%=tn.getDate()%>
+            </td>
+            <td>
 
-</div> <!-- fin du div container -->
+            </td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
+    <br/>
+
+    <h1>Créer un nouveau tournoi</h1>
+
+    <form name="tournamendCreateForm" action="indexCreateAction.jsp" method="post" role="form">
+        <div class="form-group">
+            <label for="name">Nom du tournoi</label>
+            <input type="text" name="name" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="name">Mot de passe du tournoi</label>
+            <input type="password" name="password" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-danger">Créer</button>
+    </form>
+
+</div>
+<!-- fin du div container -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>

@@ -25,8 +25,8 @@ public class Uploader extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private static final String DATA_DIRECTORY = "uploads";
-    private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 2;
-    private static final int MAX_REQUEST_SIZE = 1024 * 1024;
+    private static final int MAX_MEMORY_SIZE = 1024 * 1024 * 5;
+    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 5;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

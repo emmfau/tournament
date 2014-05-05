@@ -12,7 +12,20 @@ public class Group {
             return t2.getTeamPoints().points - t1.getTeamPoints().points; // Descending order
         }
     };
+    public static Comparator<Team> qualifEditComparator = new Comparator<Team>() {
+        public int compare(Team t1, Team t2) {
+            int t2Level = t2.getLevel();
+            int t1Level = t1.getLevel();
 
+            int levelComparison = t2Level - t1Level;
+            if (levelComparison != 0) {
+                return levelComparison;
+            } else {
+                // random stuff :)
+                return (int) (Math.random() * 10 - 5);
+            }
+        }
+    };
     String id = UUID.randomUUID().toString();
     List<String> teamsIds = new ArrayList<String>();
     List<Match> matchs = new ArrayList<Match>();
@@ -89,6 +102,5 @@ public class Group {
         }
         return tp;
     }
-
 
 }

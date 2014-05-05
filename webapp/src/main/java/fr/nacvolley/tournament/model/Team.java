@@ -13,7 +13,7 @@ public class Team {
     String phone = new String();
     String email = new String();
     String club = new String();
-    int level; // Note/12 : 1-4 is amateur, 5-8 is loisirs, 9-12 is amateur
+    int level = 5; // Note sur 10 : 0= non définir, 1 is amateur, 10 is pro
     String photo = new String(); // url ?
     String state = new String(); // pr�inscrit, inscrit, pay�
     String comments = new String();

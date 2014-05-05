@@ -18,23 +18,30 @@
 
 <div class="navbar navbar-static-top">
     <div class="navbar-header pull-left">
+        <a href="index.jsp">
+            <button type="button" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-home"></span>
+            </button>
+        </a>
         <a href="teams.jsp">
             <button type="button" class="btn btn-primary navbar-btn">Equipes</button>
         </a>
         <a href="qualifs.jsp">
-            <button type="button" class="btn btn-primary navbar-btn">Qualifs</button>
+            <button type="button" class="btn btn-primary navbar-btn">Qualifs : groupes</button>
+        </a>
+        <a href="qualifMatchs.jsp">
+            <button type="button" class="btn btn-primary navbar-btn">Qualifs : matchs</button>
         </a>
         <a href="finals.jsp">
             <button type="button" class="btn btn-primary navbar-btn">Finales</button>
         </a>
         <% if (session.getAttribute("admin") != null) { %>
         <a href="admin.jsp">
-            <button type="button" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-pencil"></span>
+            <button type="button" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-star"></span>
             </button>
         </a>
         <% } else { %>
         <a href="admin.jsp">
-            <button type="button" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-pencil"></span>
+            <button type="button" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-star"></span>
             </button>
         </a>
         <% } %>
