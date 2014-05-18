@@ -13,20 +13,6 @@
 
 <h1>
     Qualifications : groupes
-    <% if (session.getAttribute("admin") != null) { %>
-    <br/>
-    <a href="qualifEdit.jsp">
-        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span>
-            Paramètrage
-        </button>
-    </a>
-
-    <a href="qualifGroupsEdit.jsp">
-        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-asterisk"></span>
-            Créer groupes
-        </button>
-    </a>
-    <% } %>
 </h1>
 
 <table class="table table-striped table-condensed">
@@ -79,10 +65,8 @@
     %>
     <tr>
         <td>
+            <span class="label label-info"><%=teams.indexOf(team) + 1%></span>
             <%=team.getName()%>
-            <% if (session.getAttribute("admin") != null) { %>
-            <span class="badge alert-danger"><%=team.getLevel()%></span>
-            <% } %>
         </td>
         <td class="success"><strong><%=team.getTeamPoints().points%>
         </strong></td>

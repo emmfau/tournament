@@ -33,4 +33,30 @@
     <% } %>
 </div>
 
+<% if (session.getAttribute("admin") != null) { %>
+<h1>Fonctions spécifiques</h1>
+
+<div class="row">
+    <a href="qualifEdit.jsp">
+        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span>
+            Qualifications : Paramètrage
+        </button>
+    </a>
+    <a href="qualifGroupsEdit.jsp">
+        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-asterisk"></span>
+            Qualifications : créer groupes
+        </button>
+    </a>
+    <a href="qualifMatchsCreate.jsp">
+        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-asterisk"></span>
+            Qualifications : Créer matchs
+        </button>
+    </a>
+    <br/>
+
+</div>
+<%
+    }
+%>
+
 <jsp:include page="footer.jsp"/>

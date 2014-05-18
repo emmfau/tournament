@@ -1,5 +1,8 @@
 package fr.nacvolley.tournament.model;
 
+import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
+import fr.nacvolley.tournament.util.Db;
+
 import javax.persistence.Transient;
 import java.util.UUID;
 
@@ -118,5 +121,10 @@ public class Team {
         this.teamPoints = teamPoints;
     }
 
+    public void save() {
+        OObjectDatabaseTx db = Db.instance().get();
+        db.save(this);
+        db.close();
+    }
 
 }

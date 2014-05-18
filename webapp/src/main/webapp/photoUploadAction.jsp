@@ -6,6 +6,6 @@
     String photo = (String) request.getAttribute("photo");
     Team team = tn.searchTeam(teamId);
     team.setPhoto(photo);
-    tn.save();
+    team.save();
     response.sendRedirect("teams.jsp");
 %>

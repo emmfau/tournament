@@ -1,5 +1,8 @@
 package fr.nacvolley.tournament.model;
 
+import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
+import fr.nacvolley.tournament.util.Db;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -102,5 +105,12 @@ public class Group {
         }
         return tp;
     }
+
+    public void save() {
+        OObjectDatabaseTx db = Db.instance().get();
+        db.save(this);
+        db.close();
+    }
+
 
 }

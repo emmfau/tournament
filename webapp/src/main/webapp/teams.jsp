@@ -22,7 +22,7 @@
     %>
     <tr>
         <td>
-            <h3><span class="label label-info"><%=tn.getTeams().indexOf(team) + 1%></span></h3>
+            <h3><span class="label label-default"><%=tn.getTeams().indexOf(team) + 1%></span></h3>
         </td>
         <td>
             <%

@@ -22,13 +22,13 @@
     team.setPhone((String) request.getParameter("phone"));
     team.setPlayersNames((String) request.getParameter("playersName"));
     team.setState((String) request.getParameter("state"));
-    team.setPhoto((String) request.getParameter("photo"));
 
     if (isNew) {
         tn.getTeams().add(team);
+        tn.save();
+    } else {
+        team.save();
     }
-
-    tn.save();
 
     response.sendRedirect("teams.jsp");
 %>
