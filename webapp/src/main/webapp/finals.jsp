@@ -1,4 +1,6 @@
-<%@page import="fr.nacvolley.tournament.model.Group,fr.nacvolley.tournament.model.Tournament" %>
+<%@page import="fr.nacvolley.tournament.model.Group,fr.nacvolley.tournament.model.Match" %>
+<%@ page import="fr.nacvolley.tournament.model.Team" %>
+<%@ page import="fr.nacvolley.tournament.model.Tournament" %>
 <jsp:include page="header.jsp"/>
 
 
@@ -14,12 +16,27 @@
     <%
         String tournamendId = (String) session.getAttribute("tournamentId");
         Tournament tn = Tournament.load(tournamendId);
+
         for (Group group : tn.getFinalGroups()) {
+            for (Match pmatch : group.getMatchs()) {
+                Team team1 = tn.searchTeam(pmatch.getTeam1Id());
+                Team team2 = tn.searchTeam(pmatch.getTeam2Id());
+
     %>
     <tr>
+        <td>
+            <%=team1.getName()%> vs <%=team2.getName()%>
+
+        </td>
 
     </tr>
 
+    <%
+        }
+    %>
+    <tr>
+        <td>XXX</td>
+    </tr>
     <%
         }
     %>

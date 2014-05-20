@@ -20,6 +20,17 @@ public class Match {
     Date startTime;
     String field = null;
 
+    // For finals only
+    Match nextMatch;
+
+    public Match getNextMatch() {
+        return nextMatch;
+    }
+
+    public void setNextMatch(Match nextMatch) {
+        this.nextMatch = nextMatch;
+    }
+
     public int getScore1() {
         return score1;
     }
