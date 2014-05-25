@@ -1,3 +1,28 @@
 session : fixer durée de session, gérer si session=null, ou rendre sessionless et tout passer en param GET ?
 
+Tests de Aude :)
+----------------
+création d'un tournoi : pas clair. quel nouveau mot de passe pour ce tournoi ?
+Passer en mode admin direct et à la page d'admin avec une aide (quel chemin suivre suivre le chemin : admin -> équipe -> création)
+
+Etoile = changer en "Administration" = si pas d'équipes
+quand on clique il faut etre redirigé vers administration avec message d'erreur il faut direct aller en mode administration !!!
+
+Etape "remplissage d'équipes..": à la fin... on ne sait pas quoi faire :(
+Si qualifs groupes pas créé, indiquer en aide l'étape suivante.
+
+Indiquer admin pour créer les qualifs et finales
+Erreur sur qualifMatchs si on a pas créé de qualifs => test préliminaire et redirection
+
+Qualifs : on doit pas pouvoir créer les matchs avant les groupes..
+4 groupes de 2 equipes = marche pas (peut pas générer les matchs.. ) alors qu'avec 2 groupes de 4 çà marche => nb incohérent ?
+2 groupes de 4 équipes = pb dans la généraiton des matchs (n'est crée que 4 !?)
+
+Sans match joué = les équipes ont déjà des points alors qu'ils n'ont pas joué...
+
+terrain "/" = à virer
+
+Nb d'équipes de qualifs prises dans la finale principale => a corriger de 2 au paramètre du tournoi
+
+Tester en parallèle l'édition des poules etc.
 

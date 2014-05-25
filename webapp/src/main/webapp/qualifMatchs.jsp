@@ -76,7 +76,7 @@
             <%
             } else if (match.getState().equals(Match.PLAY)) {
             %>
-            <span class="label label-warning">En cours</span>
+            <span class="label label-warning">En cours [T<%=match.getField()%>]</span>
             <%
             } else if (match.getState().equals(Match.END)) {
             %>

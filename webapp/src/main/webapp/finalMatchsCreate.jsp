@@ -32,6 +32,23 @@
         }
     }
 
+    // Ajouter des équipes pour que le nombre de d'équipe soit un multiple d'une puissance de 2
+    int powToUse = 1;
+    int powResult = (int) Math.pow(2, powToUse);
+    while (powResult < mainTeams.size()) {
+        //8<7 équipes => c'est 8
+        // 8<8 c'est 8 = c'est 8
+        //9<8 faux = c'est 16'
+        powToUse++;
+        powResult = (int) Math.pow(2, powToUse);
+    }
+
+    for (int i = mainTeams.size(); i < powResult; i++) {
+        Team t = new Team();
+        t.setId(Team.FICTIVE);
+        mainTeams.add(new Team());
+    }
+
     Collections.shuffle(mainTeams);
     Group mainGroup = new Group();
     List<Match> mainGroupMatchs = new ArrayList<Match>();
@@ -69,6 +86,9 @@
 
     mainGroup.setMatchs(mainGroupMatchs);
     otherGroup.setMatchs(otherGroupMatchs);
+
+    mainGroup.createFinalTours();
+    otherGroup.createFinalTours();
 
     tn.setFinalGroups(new ArrayList<Group>());
     tn.getFinalGroups().add(mainGroup);

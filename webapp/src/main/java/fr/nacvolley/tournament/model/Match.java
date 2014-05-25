@@ -18,10 +18,12 @@ public class Match {
     String team2Id = new String();
     int score2;
     Date startTime;
-    String field = null;
+    String field = new String();
 
     // For finals only
     Match nextMatch;
+    Match previousMatch1;
+    Match previousMatch2;
 
     public Match getNextMatch() {
         return nextMatch;
@@ -29,6 +31,22 @@ public class Match {
 
     public void setNextMatch(Match nextMatch) {
         this.nextMatch = nextMatch;
+    }
+
+    public Match getPreviousMatch1() {
+        return previousMatch1;
+    }
+
+    public void setPreviousMatch1(Match previousMatch1) {
+        this.previousMatch1 = previousMatch1;
+    }
+
+    public Match getPreviousMatch2() {
+        return previousMatch2;
+    }
+
+    public void setPreviousMatch2(Match previousMatch2) {
+        this.previousMatch2 = previousMatch2;
     }
 
     public int getScore1() {

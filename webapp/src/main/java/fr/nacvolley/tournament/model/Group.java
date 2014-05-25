@@ -32,6 +32,7 @@ public class Group {
     String id = UUID.randomUUID().toString();
     List<String> teamsIds = new ArrayList<String>();
     List<Match> matchs = new ArrayList<Match>();
+    List<Tour> finalTours = new ArrayList<Tour>();
 
     public List<Match> getMatchs() {
         return matchs;
@@ -104,6 +105,78 @@ public class Group {
             }
         }
         return tp;
+    }
+
+    public List<Tour> getFinalTours() {
+        return finalTours;
+    }
+
+    /*
+    // Lecture uniquement
+    public List<List<Match>> getFinalTours(Tournament tournament) {
+        finalMatchs = new ArrayList<List<Match>>();
+        // init recursivity
+        List<Match> currentTour = new ArrayList<Match>();
+        for (Match match : matchs) {
+            Team team1 = tournament.searchTeam(match.getTeam1Id());
+            Team team2 = tournament.searchTeam(match.getTeam2Id());
+            currentTour.add(match);
+
+        }
+        return null;
+    }
+
+    // parcours l'arbre => mais ne le crée pas : le met à jour.
+    private List<Match> getNextTour(List<Match> currentTour) {
+        List<Match> nextTour = new ArrayList<Match>();
+        for (Match match : currentTour) {
+            // Si le match est fini, on peut prendre l'équipe gagnante pour le prochain tour
+            if (match.getState().equals(Match.END)) {
+                // Récupérer le vainqueur
+            }
+            // Sinon équipe encore inconnue mais on met quand même un match sans équipe !
+            else {
+
+            }
+            // D'abord enregistrer le tour avant de lancer la nouvelle récursivité
+        }
+        return nextTour;
+    }
+    */
+
+    public void createFinalTours() {
+        finalTours = new ArrayList<Tour>();
+        // init recursivity : start creating first Tour with the matchs basis
+        Tour firstTour = new Tour();
+        firstTour.setMatchs(matchs);
+        createNextTour(firstTour);
+        save();
+    }
+
+    private void createNextTour(Tour previousTour) {
+        // First add currentTour param in global list
+        finalTours.add(previousTour);
+        Tour currentTour = new Tour();
+        Match nextMatch = null;
+        int currentMatchNumber = 1;
+        for (Match match : previousTour.getMatchs()) {
+            if (currentMatchNumber == 1) {
+                // Create new Match for this new tour
+                nextMatch = new Match();
+                nextMatch.setPreviousMatch1(match);
+                match.setNextMatch(nextMatch);
+                currentMatchNumber = 2;
+            } else {
+                nextMatch.setPreviousMatch2(match);
+                match.setNextMatch(nextMatch);
+                currentTour.getMatchs().add(nextMatch);
+                currentMatchNumber = 1;
+            }
+        }
+        // Recursivity
+        if (previousTour.getMatchs().size() > 1) {
+            createNextTour(currentTour);
+        }
     }
 
     public void save() {

@@ -12,7 +12,7 @@
 </script>
 
 <h1>
-    Qualifications : groupes
+    Qualifications : groupes et classements
 </h1>
 
 <table class="table table-striped table-condensed">

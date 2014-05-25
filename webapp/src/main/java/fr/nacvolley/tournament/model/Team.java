@@ -8,8 +8,8 @@ import java.util.UUID;
 
 public class Team {
 
+    public static String FICTIVE = "FICTIVE"; // Used for fictive teams in first tours of finals
     String id = UUID.randomUUID().toString();
-
     String name = new String();
     String captainName = new String();
     String playersNames = new String();
@@ -20,7 +20,6 @@ public class Team {
     String photo = new String(); // url ?
     String state = new String(); // pr�inscrit, inscrit, pay�
     String comments = new String();
-
     @Transient
     TeamPoints teamPoints;
 

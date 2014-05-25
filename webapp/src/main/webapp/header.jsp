@@ -36,12 +36,12 @@
         </a>
         <% if (session.getAttribute("admin") != null) { %>
         <a href="admin.jsp">
-            <button type="button" class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-star"></span>
+            <button type="button" class="btn btn-danger navbar-btn">Admin
             </button>
         </a>
         <% } else { %>
         <a href="admin.jsp">
-            <button type="button" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-star"></span>
+            <button type="button" class="btn btn-primary navbar-btn">Admin
             </button>
         </a>
         <% } %>
