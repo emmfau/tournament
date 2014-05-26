@@ -12,10 +12,11 @@ import fr.nacvolley.tournament.model.Tournament;
  */
 public class Db {
 
-    public static final String DB_URL = "remote:localhost/tournament";
+    public static final String DB_NAME = "tournament";
     public static final String DB_LOGIN = "admin";
     public static final String DB_PASSWORD = "admin";
-
+    public static final String ENV_VARIABLE_DB_URL = "TOURDATA_PORT_2424_TCP_ADDR";
+    public static String DB_URL = "remote:localhost/tournament"; // by default
     private static Db instance;
 
     /**
@@ -23,7 +24,15 @@ public class Db {
      * Until orient server is up this registration will remain valid.
      */
     private Db() {
+        String hostname = "localhost"; // By default
         // 1. Register POJO
+        // Check environnement variable existence
+        if (System.getenv(ENV_VARIABLE_DB_URL) != null && !System.getenv(ENV_VARIABLE_DB_URL).equals("")) {
+            hostname = System.getenv(ENV_VARIABLE_DB_URL);
+            DB_URL = "remote:" + hostname + "/" + DB_NAME;
+        }
+        System.out.println("Using DB_URL : " + DB_URL);
+
         OObjectDatabaseTx db = OObjectDatabasePool.global().acquire(DB_URL, DB_LOGIN, DB_PASSWORD);
         db.getEntityManager().registerEntityClasses(Tournament.class.getPackage().getName());
         db.close();
