@@ -1,3 +1,4 @@
+<%@page import="fr.nacvolley.tournament.model.Tournament" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,38 +14,57 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        body {
+            padding-top: 70px;
+            padding-bottom: 30px;
+        }
+
+        .theme-dropdown .dropdown-menu {
+            position: static;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .theme-showcase > p > .btn {
+            margin: 5px 0;
+        }
+    </style>
+
 </head>
 <body>
 
-<div class="navbar navbar-static-top">
-    <div class="navbar-header pull-left">
-        <a href="index.jsp">
-            <button type="button" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-home"></span>
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
-        </a>
-        <a href="teams.jsp">
-            <button type="button" class="btn btn-primary navbar-btn">Equipes</button>
-        </a>
-        <a href="qualifs.jsp">
-            <button type="button" class="btn btn-primary navbar-btn">Qualifs : groupes</button>
-        </a>
-        <a href="qualifMatchs.jsp">
-            <button type="button" class="btn btn-primary navbar-btn">Qualifs : matchs</button>
-        </a>
-        <a href="finals.jsp">
-            <button type="button" class="btn btn-primary navbar-btn">Finales</button>
-        </a>
-        <% if (session.getAttribute("admin") != null) { %>
-        <a href="admin.jsp">
-            <button type="button" class="btn btn-danger navbar-btn">Admin
-            </button>
-        </a>
-        <% } else { %>
-        <a href="admin.jsp">
-            <button type="button" class="btn btn-primary navbar-btn">Admin
-            </button>
-        </a>
-        <% } %>
+            <a class="navbar-brand" rel="home" href="index.jsp" title="tournois"><img
+                    style="max-width:100px; margin-top: -12px;" src="images/logo-navbar-inverse-small.png"/></a>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <% if (session.getAttribute("tournamentId") != null) {
+                    String tournamendId = (String) session.getAttribute("tournamentId");
+                    Tournament tn = Tournament.load(tournamendId);
+                %>
+                <li><a class="navbar-brand" href="tournament.jsp"><%=tn.getName()%>
+                </a></li>
+                <li><a href="teams.jsp">Equipes</a></li>
+                <li><a href="qualifs.jsp">Qualifs : groupes</a></li>
+                <li><a href="qualifMatchs.jsp">Qualifs : matchs</a></li>
+                <li><a href="finals.jsp">Finales</a></li>
+                <li><a href="admin.jsp">Paramètres</a></li>
+                <% } %>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
     </div>
 </div>
 

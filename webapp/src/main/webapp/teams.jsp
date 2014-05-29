@@ -50,11 +50,13 @@
             <% if (session.getAttribute("admin") != null) { %>
             <a href="teamEdit.jsp?teamId=<%=team.getId()%>">
                 <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-pencil"></span>
+                    Modifier
                 </button>
             </a>
             <br/><br/>
             <a href="photoUpload.jsp?teamId=<%=team.getId()%>">
                 <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-camera"></span>
+                    Modifier la photo
                 </button>
             </a>
             <% } %>
@@ -67,7 +69,7 @@
 </table>
 <% if (session.getAttribute("admin") != null) { %>
 <a href="teamEdit.jsp">
-    <button class="btn btn-danger">Créer</button>
+    <button class="btn btn-danger">Créer une nouvelle équipe</button>
 </a>
 
 <a href="#teamCreated"><br/><br/></a>

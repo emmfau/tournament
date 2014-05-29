@@ -82,7 +82,7 @@
 
         <div class="form-group">
             <label for="field">Terrain</label>
-            <input type="text" name="field" class="form-control" value=<%=currentMatch.getField()%>/>
+            <input type="text" name="field" class="form-control" value="<%=currentMatch.getField()%>"/>
         </div>
         <button type="submit" class="btn btn-danger">Enregistrer</button>
     </form>

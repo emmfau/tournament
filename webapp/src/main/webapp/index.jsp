@@ -1,31 +1,29 @@
-<%@page import="fr.nacvolley.tournament.model.Tournament,java.util.List" %>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="iso-8859-1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Appli de gestion de tournois">
-    <meta name="author" content="Emmanuel FAURE @emmfau">
-    <title>Tournois</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-<script>
-    function tournament(id) {
-        window.location.href = "indexAction.jsp?id=" + encodeURIComponent(id);
-    }
+<%@page import="fr.nacvolley.tournament.model.Tournament,java.text.SimpleDateFormat, java.util.List" %>
+<jsp:include page="header.jsp"/>
 
-</script>
-<div class="container">
+<div class="container theme-showcase" role="main">
+    <div class="jumbotron">
+        <h1><img src="images/logo-jumbotron.png"/> tournois</h1>
+        <h4>
+            <ul>
+                <li>Et si on organisait un tournoi ? Bon par contre, faut gérer les équipes, les poules, les matchs, les
+                    éliminatoires ... galère.
+                </li>
+                <li>Ce serait bien qu'on trouve un truc tout prêt, et qu'on puisse gérer le tournoi facilement et à
+                    plusieurs.
+                </li>
+                <li>Genre un site web pour gérer les tournois, qui marche sur ordinateur, tablette, ou smartphone ?</li>
+            </ul>
+        </h4>
+    </div>
 
-    <h1>Liste de tous les tournois</h1>
+    <h1>Liste des tournois</h1>
+    <script>
+        function tournament(id) {
+            window.location.href = "indexAction.jsp?id=" + encodeURIComponent(id);
+        }
 
+    </script>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -36,7 +34,7 @@
         <tbody>
         <%
             List<Tournament> tns = Tournament.listAll();
-
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             for (Tournament tn : tns) {
         %>
         <tr>
@@ -45,7 +43,7 @@
                     <%=tn.getName()%>
                 </a>
             </td>
-            <td><%=tn.getDate()%>
+            <td><%=sdf.format(tn.getDate())%>
             </td>
             <td>
 
@@ -62,22 +60,14 @@
 
     <form name="tournamendCreateForm" action="indexCreateAction.jsp" method="post" role="form">
         <div class="form-group">
-            <label for="name">Nom du tournoi</label>
+            <label for="name">Nom du nouveau tournoi</label>
             <input type="text" name="name" class="form-control"/>
         </div>
         <div class="form-group">
-            <label for="name">Mot de passe du tournoi</label>
+            <label for="name">Nouveau mot de passe pour paramétrer ce tournoi</label>
             <input type="password" name="password" class="form-control"/>
         </div>
         <button type="submit" class="btn btn-danger">Créer</button>
     </form>
 
-</div>
-<!-- fin du div container -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-</body>
-</html>
-
+    <jsp:include page="footer.jsp"/>

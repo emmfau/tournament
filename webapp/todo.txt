@@ -2,10 +2,13 @@ session : fixer durée de session, gérer si session=null, ou rendre sessionless e
 
 Tests de Aude :)
 ----------------
-création d'un tournoi : pas clair. quel nouveau mot de passe pour ce tournoi ?
-Passer en mode admin direct et à la page d'admin avec une aide (quel chemin suivre suivre le chemin : admin -> équipe -> création)
 
-Etoile = changer en "Administration" = si pas d'équipes
+bug pour la création des finale consolante ! (il faut copier coller l'algo de création de la finale :) )
+
+[OK] création d'un tournoi : pas clair. quel nouveau mot de passe pour ce tournoi ?
+[OK] Passer en mode admin direct et à la page d'admin avec une aide (quel chemin suivre suivre le chemin : admin -> équipe -> création)
+
+[OK] Etoile = changer en "Administration" = si pas d'équipes
 quand on clique il faut etre redirigé vers administration avec message d'erreur il faut direct aller en mode administration !!!
 
 Etape "remplissage d'équipes..": à la fin... on ne sait pas quoi faire :(
@@ -18,11 +21,20 @@ Qualifs : on doit pas pouvoir créer les matchs avant les groupes..
 4 groupes de 2 equipes = marche pas (peut pas générer les matchs.. ) alors qu'avec 2 groupes de 4 çà marche => nb incohérent ?
 2 groupes de 4 équipes = pb dans la généraiton des matchs (n'est crée que 4 !?)
 
-Sans match joué = les équipes ont déjà des points alors qu'ils n'ont pas joué...
+Sans match joué = les équipes ont déjà des points alors qu'ils n'ont pas joué !
 
-terrain "/" = à virer
+[OK] terrain "/" = à virer
 
 Nb d'équipes de qualifs prises dans la finale principale => a corriger de 2 au paramètre du tournoi
 
 Tester en parallèle l'édition des poules etc.
+
+Purger la fiche descriptive de l'équipe : photo en grand
+
+[OK] Régler le problème d'accent sur MK808 ? vérifier l'encoding ISO 8859 1
+
+Fixer la session à 8 heures
+
+Evols
+Faire un mode "live" : avec les matchs en cours, ceux à venir ? (créer un état pour l'occasion)
 
