@@ -13,13 +13,14 @@
     <div class="form-group">Nombre de groupes de qualification
         <input type="text" name="qualifNbGroups" class="form-control" value="<%=tn.getQualifNbGroups()%>"/>
     </div>
-    <div class="form-group">Nombre d'équipes par groupe
+    <!-- <div class="form-group">Nombre d'équipes par groupe
         <input type="text" name="qualifNbTeamsPerGroup" class="form-control"
                value="<%=tn.getQualifNbTeamsPerGroup()%>"/>
     </div>
     <div class="form-group">Nombre de terrains
         <input type="text" name="qualifNbGrounds" class="form-control" value="<%=tn.getQualifNbGrounds()%>"/>
     </div>
+    -->
     <br/>
 
     <div class="form-group">Nombre de points pour une victoire
@@ -34,7 +35,7 @@
                value="<%=tn.getQualifPointsForDefeat()%>"/>
     </div>
     <br/>
-
+    <!--
     <div class="form-group">Heure du début des qualifications
         <input type="text" name="qualifStartTime" class="form-control" value="<%=tn.getQualifStartTime()%>"/>
     </div>
@@ -45,7 +46,7 @@
         <input type="text" name="qualifPauseTime" class="form-control" value="<%=tn.getQualifPauseTime()%>"/>
     </div>
     <br/>
-
+    -->
     <button type="submit" class="btn btn-danger">Enregistrer</button>
 </form>
 <br/>

@@ -7,12 +7,12 @@
 <%
     String tournamendId = (String) session.getAttribute("tournamentId");
     Tournament tn = Tournament.load(tournamendId);
-
+    List<Team> mainTeams = new ArrayList<Team>();
+    List<Team> otherTeams = new ArrayList<Team>();
     // Hypothèse : les 2 premiers de chaque poule en phase principale
     int nbTeamsInPrincipal = 2;
 
-    List<Team> mainTeams = new ArrayList<Team>();
-    List<Team> otherTeams = new ArrayList<Team>();
+
     for (Group group : tn.getQualifGroups()) {
         // Récupérer les équipes et calculer leurs points
         List<Team> teams = new ArrayList<Team>();
@@ -31,6 +31,8 @@
             }
         }
     }
+
+    /////////// MAIN TEAMS ///////////
 
     // Ajouter des équipes pour que le nombre de d'équipe soit un multiple d'une puissance de 2
     int powToUse = 1;
@@ -67,6 +69,25 @@
     }
 
 
+    /////////// OTHER TEAMS ///////////
+
+    // Ajouter des équipes pour que le nombre de d'équipe soit un multiple d'une puissance de 2
+    powToUse = 1;
+    powResult = (int) Math.pow(2, powToUse);
+    while (powResult < otherTeams.size()) {
+        //8<7 équipes => c'est 8
+        // 8<8 c'est 8 = c'est 8
+        //9<8 faux = c'est 16'
+        powToUse++;
+        powResult = (int) Math.pow(2, powToUse);
+    }
+
+    for (int i = otherTeams.size(); i < powResult; i++) {
+        Team t = new Team();
+        t.setId(Team.FICTIVE);
+        otherTeams.add(new Team());
+    }
+
     Collections.shuffle(otherTeams);
     Group otherGroup = new Group();
     List<Match> otherGroupMatchs = new ArrayList<Match>();
@@ -83,6 +104,9 @@
             currentTeamNumber = 1;
         }
     }
+
+
+    /////////// RECORD ALL ///////////
 
     mainGroup.setMatchs(mainGroupMatchs);
     otherGroup.setMatchs(otherGroupMatchs);

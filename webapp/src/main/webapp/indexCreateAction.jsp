@@ -8,5 +8,5 @@
     tn.save();
     session.setAttribute("tournamentId", tn.getId());
     session.setAttribute("admin", true);
-    response.sendRedirect("admin.jsp");
+    response.sendRedirect("help.jsp");
 %>

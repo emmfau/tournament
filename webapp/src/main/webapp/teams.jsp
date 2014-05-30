@@ -35,8 +35,8 @@
             <% } %>
         </td>
         <td>
-            <h3><a href="javascript:teamView('<%=team.getId()%>')"><%=team.getName()%>
-            </a></h3>
+            <h3><%=team.getName()%>
+            </h3>
             <h5>
                 <strong><span class="glyphicon glyphicon-user"></span> <%=team.getCaptainName()%>
                 </strong> + <%=team.getPlayersNames()%><br/>
@@ -56,7 +56,7 @@
             <br/><br/>
             <a href="photoUpload.jsp?teamId=<%=team.getId()%>">
                 <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-camera"></span>
-                    Modifier la photo
+                    Changer photo
                 </button>
             </a>
             <% } %>

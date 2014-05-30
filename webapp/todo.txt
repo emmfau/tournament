@@ -11,13 +11,15 @@ bug pour la création des finale consolante ! (il faut copier coller l'algo de cr
 [OK] Etoile = changer en "Administration" = si pas d'équipes
 quand on clique il faut etre redirigé vers administration avec message d'erreur il faut direct aller en mode administration !!!
 
-Etape "remplissage d'équipes..": à la fin... on ne sait pas quoi faire :(
-Si qualifs groupes pas créé, indiquer en aide l'étape suivante.
-
+[OK] Etape "remplissage d'équipes..": à la fin... on ne sait pas quoi faire :(
 Indiquer admin pour créer les qualifs et finales
+[OK] Page de guide / aide intégrée.
+
 Erreur sur qualifMatchs si on a pas créé de qualifs => test préliminaire et redirection
 
 Qualifs : on doit pas pouvoir créer les matchs avant les groupes..
+
+BUG !!
 4 groupes de 2 equipes = marche pas (peut pas générer les matchs.. ) alors qu'avec 2 groupes de 4 çà marche => nb incohérent ?
 2 groupes de 4 équipes = pb dans la généraiton des matchs (n'est crée que 4 !?)
 
@@ -38,3 +40,4 @@ Fixer la session à 8 heures
 Evols
 Faire un mode "live" : avec les matchs en cours, ceux à venir ? (créer un état pour l'occasion)
 
+Donationware (type ubuntu ?)

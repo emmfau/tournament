@@ -3,18 +3,17 @@
 
 <div class="container theme-showcase" role="main">
     <div class="jumbotron">
-        <h1><img src="images/logo-jumbotron.png"/> tournois</h1>
+        <h1><img src="images/logo-jumbotron.png"/> tournoi</h1>
         <h4>
-            <ul>
-                <li>Et si on organisait un tournoi ? Bon par contre, faut gérer les équipes, les poules, les matchs, les
-                    éliminatoires ... galère.
-                </li>
-                <li>Ce serait bien qu'on trouve un truc tout prêt, et qu'on puisse gérer le tournoi facilement et à
-                    plusieurs.
-                </li>
-                <li>Genre un site web pour gérer les tournois, qui marche sur ordinateur, tablette, ou smartphone ?</li>
-            </ul>
+            <i>Et si on organisait un tournoi ? Bon par contre, faut gérer les équipes, les poules, les matchs, les
+                éliminatoires ... pfffff. Ce serait bien qu'on trouve un truc tout prêt, et qu'on puisse gérer le
+                tournoi facilement, et à
+                plusieurs. Genre un site web pour gérer un tournoi, qui marche sur ordinateur, tablette, ou smartphone ?
+            </i>
         </h4>
+
+        <p><span class="glyphicon glyphicon-thumbs-up"></span>
+            Bravo, vous venez de trouver un site qui fait çà !</p>
     </div>
 
     <h1>Liste des tournois</h1>
@@ -69,5 +68,27 @@
         </div>
         <button type="submit" class="btn btn-danger">Créer</button>
     </form>
+    <br/>
+
+    <div style="text-align: center">
+        <h5>
+            <p>
+                <a href="https://twitter.com/emmfau" class="twitter-follow-button" data-link-color="#0069D6"
+                   data-show-count="true">Suivre @emmfau</a>
+                <script>!function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, 'script', 'twitter-wjs');</script>
+                <iframe src="http://ghbtns.com/github-btn.html?user=emmfau&repo=tournament&type=watch&count=true"
+                        allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </p>
+        </h5>
+    </div>
+
 
     <jsp:include page="footer.jsp"/>
