@@ -28,7 +28,7 @@
             }
         %>
     </title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -68,8 +68,8 @@
             <a class="navbar-brand" rel="home" href="index.jsp" title="tournois"><img
                     style="max-width:100px; margin-top: -12px;" src="images/logo-navbar-inverse-small.png"/></a>
             <% if (tn != null) { %>
-            <a class="navbar-brand" href="tournament.jsp"><%=tn.getName()%>
-            </a>
+            <span class="navbar-brand" style="color:white;"><%=tn.getName()%>
+            </span>
             <% } %>
         </div>
         <div class="navbar-collapse collapse">

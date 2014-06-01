@@ -24,13 +24,19 @@
         }
 
         // Réordonner : Match 0, match N, match 1, match N-1, match 2, match N-2, etc..
+        // [BUG : si chiffre impair d'équipes, en sortie il n'y a plus le bon nombre de matchs ]
         List<Match> orderedGroupMatchs = new ArrayList<Match>();
         // Ordonnancement des matchs
         int iStart = 0;
         int iEnd = groupMatchs.size() - 1;
+        if (iEnd % 2 == 0) { // Si chiffre impair alors on incrémente au prochain multiple de 2.
+            iEnd++;
+        }
         while (iStart < iEnd) {
             orderedGroupMatchs.add(groupMatchs.get(iStart));
-            orderedGroupMatchs.add(groupMatchs.get(iEnd));
+            if (iEnd < groupMatchs.size()) {
+                orderedGroupMatchs.add(groupMatchs.get(iEnd));
+            }
             iStart++;
             iEnd--;
         }

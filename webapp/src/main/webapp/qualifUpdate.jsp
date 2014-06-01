@@ -15,6 +15,8 @@
     //tn.setQualifMatchTime(Integer.parseInt((String) request.getParameter("qualifMatchTime")));
     //tn.setQualifPauseTime(Integer.parseInt((String) request.getParameter("qualifPauseTime")));
 
+    tn.setQualifTeamsInFinalPrincipal(Integer.parseInt((String) request.getParameter("qualifTeamsInFinalPrincipal")));
+
     tn.save();
 
     response.sendRedirect("qualifs.jsp");

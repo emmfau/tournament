@@ -26,6 +26,7 @@
         // Constitution de la liste des matchs ( dans l'ordre des groupes, puis dans l'ordre des matchs)
         //List<Match> matchs = new ArrayList<Match>();
         // Get 1st group matchs size
+        /*
         int groupMatchsSize = 0; //default
         if (tn.getQualifGroups() != null) {
             groupMatchsSize = tn.getQualifGroups().size();
@@ -37,7 +38,22 @@
                 Match match = group.getMatchs().get(curMatchIdx);
                 Team team1 = tn.searchTeam(match.getTeam1Id());
                 Team team2 = tn.searchTeam(match.getTeam2Id());
+        */
 
+        // Recherche du nombre de matchs maximum dans un groupe
+        int maxNbMatchsInGroup = 0;
+        for (Group group : tn.getQualifGroups()) {
+            if (group.getMatchs().size() > maxNbMatchsInGroup) {
+                maxNbMatchsInGroup = group.getMatchs().size();
+            }
+        }
+
+        for (int matchIndex = 0; matchIndex < maxNbMatchsInGroup; matchIndex++) {
+            for (Group group : tn.getQualifGroups()) {
+                if (group.getMatchs().size() > matchIndex) {
+                    Match match = group.getMatchs().get(matchIndex);
+                    Team team1 = tn.searchTeam(match.getTeam1Id());
+                    Team team2 = tn.searchTeam(match.getTeam2Id());
     %>
     <tr>
         <td>
@@ -98,6 +114,8 @@
 
     </tr>
     <%
+                }
+
             }
 
         }

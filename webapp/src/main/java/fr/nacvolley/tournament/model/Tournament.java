@@ -43,6 +43,8 @@ public class Tournament {
     int finalMatchTime = 12;
     int finalPauseTime = 3;
 
+    int qualifTeamsInFinalPrincipal = 2; // Les 2 premières équipes de poules prises par défaut en principale
+
     public static List<Tournament> listAll() {
         OObjectDatabaseTx db = Db.instance().get();
         List<Tournament> results = db.query(new OSQLSynchQuery<Tournament>("select * from Tournament"));
@@ -59,6 +61,14 @@ public class Tournament {
         } else {
             return null;
         }
+    }
+
+    public int getQualifTeamsInFinalPrincipal() {
+        return qualifTeamsInFinalPrincipal;
+    }
+
+    public void setQualifTeamsInFinalPrincipal(int qualifTeamsInFinalPrincipal) {
+        this.qualifTeamsInFinalPrincipal = qualifTeamsInFinalPrincipal;
     }
 
     public String getName() {

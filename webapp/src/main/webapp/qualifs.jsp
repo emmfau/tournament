@@ -54,7 +54,7 @@
 
         for (String teamId : group.getTeamsIds()) {
             Team team = tn.searchTeam(teamId);
-            team.setTeamPoints(group.computeTeamPoints(teamId));
+            team.setTeamPoints(group.computeTeamPoints(teamId, tn.getQualifPointsForVictory(), tn.getQualifPointsForNull(), tn.getQualifPointsForDefeat()));
             teams.add(team);
         }
 

@@ -41,9 +41,13 @@
                 <strong><span class="glyphicon glyphicon-user"></span> <%=team.getCaptainName()%>
                 </strong> + <%=team.getPlayersNames()%><br/>
                 <span class="glyphicon glyphicon-map-marker"></span> <%=team.getClub()%><br/>
+                <span class="glyphicon glyphicon-comment"></span> <%=team.getComments()%><br/>
+                <% if (session.getAttribute("admin") != null) { %>
                 <a href="tel:<%=team.getPhone()%>"><span>
                         <span class="glyphicon glyphicon-phone-alt"></span> <%=team.getPhone()%>
-                </a>
+                </a><br/>
+                <span class="glyphicon glyphicon-chevron-right"></span> <%=team.getState()%><br/>
+                <% } %>
             </h5>
         </td>
         <td>
@@ -67,6 +71,16 @@
     %>
     </tbody>
 </table>
+
+
+<% if (tn.getTeams().size() == 0) { %>
+<div class="alert alert-warning alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Info</strong> Aucune équipe n'est créée pour le moment.
+</div>
+<% } %>
+
+
 <% if (session.getAttribute("admin") != null) { %>
 <a href="teamEdit.jsp">
     <button class="btn btn-danger">Créer une nouvelle équipe</button>

@@ -10,15 +10,14 @@
     List<Team> mainTeams = new ArrayList<Team>();
     List<Team> otherTeams = new ArrayList<Team>();
     // Hypothèse : les 2 premiers de chaque poule en phase principale
-    int nbTeamsInPrincipal = 2;
-
+    int nbTeamsInPrincipal = tn.getQualifTeamsInFinalPrincipal();
 
     for (Group group : tn.getQualifGroups()) {
         // Récupérer les équipes et calculer leurs points
         List<Team> teams = new ArrayList<Team>();
         for (String teamId : group.getTeamsIds()) {
             Team team = tn.searchTeam(teamId);
-            team.setTeamPoints(group.computeTeamPoints(teamId));
+            team.setTeamPoints(group.computeTeamPoints(teamId, tn.getQualifPointsForVictory(), tn.getQualifPointsForNull(), tn.getQualifPointsForDefeat()));
             teams.add(team);
         }
         // Trier les équipes selon leurs points

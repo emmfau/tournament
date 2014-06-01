@@ -6,7 +6,7 @@
     Tournament tn = Tournament.load(tournamendId);
 %>
 
-<h1> Paramètrage des groupes de qualification</h1>
+<h1> Paramètres des qualifications et finales</h1>
 
 <form name="qualifUpdateForm" action="qualifUpdate.jsp" method="post" role="form">
 
@@ -47,6 +47,13 @@
     </div>
     <br/>
     -->
+    <div class="form-group">Finales : Nombre d'équipes prises pour la principale (ex : 2 pour prendre les 2 premières de
+        chaque poule en principale)
+        <input type="text" name="qualifTeamsInFinalPrincipal" class="form-control"
+               value="<%=tn.getQualifTeamsInFinalPrincipal()%>"/>
+    </div>
+    <br/>
+
     <button type="submit" class="btn btn-danger">Enregistrer</button>
 </form>
 <br/>

@@ -58,45 +58,45 @@ public class Group {
         this.teamsIds = teamsIds;
     }
 
-    public TeamPoints computeTeamPoints(String teamId) {
+    public TeamPoints computeTeamPoints(String teamId, int pointsForVictory, int pointsForNull, int pointsForDefeat) {
         TeamPoints tp = new TeamPoints();
         for (Match m : getMatchs()) {
-            if (teamId != null && teamId.equals(m.getTeam1Id())) {
+            if (teamId != null && teamId.equals(m.getTeam1Id()) && ((m.getScore1() > 0) || (m.getScore2() > 0))) {
                 tp.matchsPlayed++;
                 if (m.getScore1() > m.getScore2()) { // Gagné
-                    tp.points += 3;
+                    tp.points += pointsForVictory;
                     tp.matchsWon++;
                     tp.pointsWon += m.getScore1();
                     tp.pointsLost += m.getScore2();
                     tp.pointsDiff = tp.pointsWon - tp.pointsLost;
                 } else if (m.getScore1() == m.getScore2()) { // Nul
-                    tp.points += 1;
+                    tp.points += pointsForNull;
                     tp.pointsWon += m.getScore1();
                     tp.pointsLost += m.getScore2();
                     tp.pointsDiff = tp.pointsWon - tp.pointsLost;
                 } else { // Perdu
-                    tp.points += 0;
+                    tp.points += pointsForDefeat;
                     tp.matchsLost++;
                     tp.pointsWon += m.getScore1();
                     tp.pointsLost += m.getScore2();
                     tp.pointsDiff = tp.pointsWon - tp.pointsLost;
                 }
             }
-            if (teamId != null && teamId.equals(m.getTeam2Id())) { // Gagné
+            if (teamId != null && teamId.equals(m.getTeam2Id()) && ((m.getScore1() > 0) || (m.getScore2() > 0))) {
                 tp.matchsPlayed++;
-                if (m.getScore2() > m.getScore1()) {
-                    tp.points += 3;
+                if (m.getScore2() > m.getScore1()) { // Gagné
+                    tp.points += pointsForVictory;
                     tp.matchsWon++;
                     tp.pointsWon += m.getScore2();
                     tp.pointsLost += m.getScore1();
                     tp.pointsDiff = tp.pointsWon - tp.pointsLost;
                 } else if (m.getScore2() == m.getScore1()) { // Nul
-                    tp.points += 1;
+                    tp.points += pointsForNull;
                     tp.pointsWon += m.getScore2();
                     tp.pointsLost += m.getScore1();
                     tp.pointsDiff = tp.pointsWon - tp.pointsLost;
-                } else {
-                    tp.points += 0;
+                } else { // Perdu
+                    tp.points += pointsForDefeat;
                     tp.matchsLost++;
                     tp.pointsWon += m.getScore2();
                     tp.pointsLost += m.getScore1();

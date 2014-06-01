@@ -11,7 +11,7 @@
             </li>
             <li>Dans la page <a href="teams.jsp">Equipes</a>, créer les différentes équipes qui participeront.</li>
             <li>Une fois toutes les équipes prêtes : dans les <a href="admin.jsp">Paramètres</a>, vérifiez les
-                paramètres des qualifications.
+                paramètres des qualifications et finales.
             </li>
             <li>Dans la page <a href="admin.jsp">Paramètres</a>, créer/recréer les groupes de qualifications (les
                 ventilations des équipes sont en
