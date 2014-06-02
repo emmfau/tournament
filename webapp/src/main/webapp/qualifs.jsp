@@ -66,7 +66,8 @@
     <tr>
         <td>
             <span class="label label-info"><%=teams.indexOf(team) + 1%></span>
-            <%=team.getName()%>
+            <a href="teamView.jsp?teamId=<%=team.getId()%>"><%=team.getName()%>
+            </a>
         </td>
         <td class="success"><strong><%=team.getTeamPoints().points%>
         </strong></td>

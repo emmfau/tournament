@@ -3,6 +3,18 @@
 <%@ page import="fr.nacvolley.tournament.model.Tournament" %>
 <jsp:include page="header.jsp"/>
 
+<script>
+    function qualifsRemove() {
+        if (confirm("Confirmez-vous la suppression ?")) {
+            window.location.href = "qualifsRemove.jsp";
+        }
+    }
+    function finalsRemove() {
+        if (confirm("Confirmez-vous la suppression ?")) {
+            window.location.href = "finalsRemove.jsp";
+        }
+    }
+</script>
 
 <h1>Paramètres du tournoi</h1>
 
@@ -85,6 +97,12 @@
             (Re)créer les matchs
         </button>
     </a>
+
+    <a href="javascript:qualifsRemove()">
+        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-asterisk"></span>
+            Supprimer les groupes et les matchs
+        </button>
+    </a>
     <br/>
 </div>
 <%
@@ -93,7 +111,7 @@
 <div class="alert alert-warning alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <strong>Info</strong> Au moins un match de qualif a démarré : il n'est plus possible de recréer les groupes et
-    matchs de qualif.
+    matchs de qualif, ou de supprimer.
 </div>
 <%
     }
@@ -124,7 +142,13 @@
             (Re)créer les groupes et les matchs
         </button>
     </a>
+    <a href="javascript:finalsRemove()">
+        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-asterisk"></span>
+            Supprimer les groupes et les matchs
+        </button>
+    </a>
 </div>
+
 
 <%
 } else {
@@ -132,7 +156,7 @@
 <div class="alert alert-warning alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <strong>Info</strong> Au moins un match de finale a démarré : il n'est plus possible de recréer les groupes et
-    matchs de finale.
+    matchs de finale, ou de supprimer.
 </div>
 <%
     }

@@ -11,32 +11,39 @@
 <div class="row">
     <h1><%=team.getName()%>
     </h1>
+    <%
+        String teamPhotoFileName = team.getPhoto();
+        if (teamPhotoFileName != null && !teamPhotoFileName.equals("")) {
+    %>
+    <a href="uploads/<%=teamPhotoFileName%>"><img class="img-responsive" src="uploads/<%=teamPhotoFileName%>"/></a>
+    <% } else { %>
+    <a href="images/team.jpg"><img src="images/team-thumb.jpg"/></a>
+    <% } %>
 
     <h3>
         <strong><%=team.getCaptainName()%>
         </strong>
         <%=team.getPlayersNames()%>
     </h3>
-    <h4><a href="tel:<%=team.getPhone()%>"><%=team.getPhone()%>
+    <h4><span class="glyphicon glyphicon-map-marker"></span> <%=team.getClub()%>
+    </h4>
+    <h4><span class="glyphicon glyphicon-comment"></span> <%=team.getComments()%>
+    </h4>
+    <% if (session.getAttribute("admin") != null) { %>
+    <h4><span class="glyphicon glyphicon-phone-alt"></span> <a href="tel:<%=team.getPhone()%>"><%=team.getPhone()%>
     </a></h4>
     <h4><a href="mailto:<%=team.getEmail()%>"><%=team.getEmail()%>
     </a></h4>
-    <h5><%=team.getClub()%>
-    </h5>
-    <h5><%=team.getComments()%>
-    </h5>
-</div>
+    <h4><span class="glyphicon glyphicon-chevron-right"></span> <%=team.getState()%>
+    </h4>
+    <% } %></div>
 
-<h2>Groupe de qualification</h2>
+<% if (session.getAttribute("admin") != null) { %>
+<a href="teamEdit.jsp?teamId=<%=team.getId()%>">
+    <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-pencil"></span>
+        Modifier
+    </button>
+</a>
+<% } %>
 
-<h3>Matchs</h3>
-
-<h3>Résultats</h3>
-
-<h2>Groupe de finale</h2>
-
-<h3>Matchs</h3>
-
-
-</div>
 <jsp:include page="footer.jsp"/>

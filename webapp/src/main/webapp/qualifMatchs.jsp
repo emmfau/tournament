@@ -75,13 +75,16 @@
                     style2 = "label-default";
                 }
             %>
-            <%=team1.getName()%> <span class="label <%=style1%>"><%=match.getScore1()%></span>
+            <a href="teamView.jsp?teamId=<%=team1.getId()%>"><%=team1.getName()%>
+            </a> <span class="label <%=style1%>"><%=match.getScore1()%></span>
         </td>
         <td align="center">
             /
         </td>
         <td align="left">
-            <span class="label <%=style2%>"><%=match.getScore2()%></span> <%=team2.getName()%>
+            <span class="label <%=style2%>"><%=match.getScore2()%></span> <a
+                href="teamView.jsp?teamId=<%=team2.getId()%>"><%=team2.getName()%>
+        </a>
         </td>
 
         <td>

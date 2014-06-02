@@ -35,7 +35,8 @@
             <% } %>
         </td>
         <td>
-            <h3><%=team.getName()%>
+            <h3><a href="teamView.jsp?teamId=<%=team.getId()%>"><%=team.getName()%>
+            </a>
             </h3>
             <h5>
                 <strong><span class="glyphicon glyphicon-user"></span> <%=team.getCaptainName()%>
@@ -82,6 +83,9 @@
 
 
 <% if (session.getAttribute("admin") != null) { %>
+
+<% if (tn.getQualifGroups().size() == 0) { // tant que les qualifs n'ont pas commencé %>
+
 <a href="teamEdit.jsp">
     <button class="btn btn-danger">Créer une nouvelle équipe</button>
 </a>
@@ -92,6 +96,15 @@
     <button type="button" class="btn btn-danger">Créer une équipe aléatoire</button>
 </a>
 <br/><br/>
+<% } else { %>
+<br/><br/>
+
+<div class="alert alert-warning alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Info</strong> Il n'est plus possible de créer une équipe car il existe des groupes de qualification.
+</div>
+<% } %>
+
 <% } %>
 
 <jsp:include page="footer.jsp"/>

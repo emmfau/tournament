@@ -81,7 +81,10 @@
                 }
             %>
             <% if (team1 != null) {
-                out.print(team1.getName());
+            %>
+            <a href="teamView.jsp?teamId=<%=team1.getId()%>"><%=team1.getName()%>
+            </a>
+            <%
             } else {
                 out.print("--------");
             }
@@ -94,7 +97,10 @@
         <td align="left">
             <span class="label <%=style2%>"><%=match.getScore2()%></span>
             <% if (team2 != null) {
-                out.print(team2.getName());
+            %>
+            <a href="teamView.jsp?teamId=<%=team2.getId()%>"><%=team2.getName()%>
+            </a>
+            <%
             } else {
                 out.print("--------");
             }
