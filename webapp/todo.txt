@@ -1,37 +1,38 @@
 Tests
 -----
 
-[OK] bug pour la création des finale consolante ! (il faut copier coller l'algo de création de la finale :) )
+[OK] bug pour la crï¿½ation des finale consolante ! (il faut copier coller l'algo de crï¿½ation de la finale :) )
 
-[OK] session : fixer durée de session, gérer si session=null, ou rendre sessionless et tout passer en param GET ?
+[OK] session : fixer durï¿½e de session, gï¿½rer si session=null, ou rendre sessionless et tout passer en param GET ?
 
-[OK] création d'un tournoi : pas clair. quel nouveau mot de passe pour ce tournoi ?
-[OK] Passer en mode admin direct et à la page d'admin avec une aide (quel chemin suivre suivre le chemin : admin -> équipe -> création)
+[OK] crï¿½ation d'un tournoi : pas clair. quel nouveau mot de passe pour ce tournoi ?
+[OK] Passer en mode admin direct et ï¿½ la page d'admin avec une aide (quel chemin suivre suivre le chemin : admin -> ï¿½quipe -> crï¿½ation)
 
-[OK] Etoile = changer en "Administration" = si pas d'équipes
-quand on clique il faut etre redirigé vers administration avec message d'erreur il faut direct aller en mode administration !!!
+[OK] Etoile = changer en "Administration" = si pas d'ï¿½quipes
+quand on clique il faut etre redirigï¿½ vers administration avec message d'erreur il faut direct aller en mode administration !!!
 
-[OK] Etape "remplissage d'équipes..": à la fin... on ne sait pas quoi faire :(
-Indiquer admin pour créer les qualifs et finales
-[OK] Page de guide / aide intégrée.
+[OK]ï¿½Etape "remplissage d'ï¿½quipes..": ï¿½ la fin... on ne sait pas quoi faire :(
+Indiquer admin pour crï¿½er les qualifs et finales
+[OK] Page de guide / aide intï¿½grï¿½e.
 
-[OK] Erreur sur qualifMatchs si on a pas créé de qualifs => test préliminaire et redirection
+[OK] Erreur sur qualifMatchs si on a pas crï¿½ï¿½ de qualifs => test prï¿½liminaire et redirection
 
-[OK en guide] Qualifs : on doit pas pouvoir créer les matchs avant les groupes..
+[OK en guide] Qualifs : on doit pas pouvoir crï¿½er les matchs avant les groupes..
 
-[OK] bug 4 groupes de 2 equipes = marche pas (peut pas générer les matchs.. ) alors qu'avec 2 groupes de 4 çà marche => nb incohérent ?
+[OK] bug 4 groupes de 2 equipes = marche pas (peut pas gï¿½nï¿½rer les matchs.. ) alors qu'avec 2 groupes de 4 ï¿½ï¿½ marche => nb incohï¿½rent ?
 
-[OK] Sans match joué = les équipes ont déjà des points alors qu'ils n'ont pas joué !
+[OK] Sans match jouï¿½ = les ï¿½quipes ont dï¿½jï¿½ des points alors qu'ils n'ont pas jouï¿½ !
 
-[OK] terrain "/" = à virer
+[OK] terrain "/" = ï¿½ virer
 
-[OK] Nb d'équipes de qualifs prises dans la finale principale => a corriger de 2 au paramètre du tournoi
+[OK] Nb d'ï¿½quipes de qualifs prises dans la finale principale => a corriger de 2 au paramï¿½tre du tournoi
 
-[OK] Tester en parallèle l'édition des poules etc.
+[OK] Tester en parallï¿½le l'ï¿½dition des poules etc.
 
-[OK] Purger la fiche descriptive de l'équipe : photo en grand
+[OK] Purger la fiche descriptive de l'ï¿½quipe : photo en grand
 
-[OK] Régler le problème d'accent sur MK808 ? vérifier l'encoding ISO 8859 1
+[OK] Rï¿½gler le problï¿½me d'accent sur MK808 ? vï¿½rifier l'encoding ISO 8859 1
 
-[OK] Fixer la session à 8 heures
+[OK] Fixer la session ï¿½ 8 heures
 
+Ajouter un mode TV "bar"

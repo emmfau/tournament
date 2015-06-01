@@ -11,6 +11,15 @@ import java.util.UUID;
 
 public class Tournament {
 
+    public static final int ALL_PHASES=0;
+
+    public static final int PHASE_OPENING=1;
+    public static final int PHASE_PREPARING_QUALIFS=2;
+    public static final int PHASE_PLAYING_QUALIFS=3;
+    public static final int PHASE_PREPARING_FINALS=4;
+    public static final int PHASE_PLAYING_FINALS=5;
+    public static final int PHASE_ENDING=6;
+
     String id = UUID.randomUUID().toString();
 
     String name = new String();
@@ -43,7 +52,10 @@ public class Tournament {
     int finalMatchTime = 12;
     int finalPauseTime = 3;
 
-    int qualifTeamsInFinalPrincipal = 2; // Les 2 premières équipes de poules prises par défaut en principale
+    int qualifTeamsInFinalPrincipal = 2; // Les 2 premiï¿½res ï¿½quipes de poules prises par dï¿½faut en principale
+
+    // TV paramÃ¨tres
+    Tv tv= new Tv(); // default tv s
 
     public static List<Tournament> listAll() {
         OObjectDatabaseTx db = Db.instance().get();
@@ -279,5 +291,11 @@ public class Tournament {
         return null; // if no team found, return null
     }
 
+    public Tv getTv() {
+        return tv;
+    }
 
+    public void setTv(Tv tv) {
+        this.tv = tv;
+    }
 }

@@ -10,29 +10,29 @@ public class Randomizer {
     public static String teamNames[] = {"Les aigles", "Les alligators", "Les anguilles", "Les anchois", "Les appollons",
             "Les baleines", "Les blackbass", "Les bourdons", "Les buses", "Les caimans", "Les castors", "Les cobras",
             "Les cochons", "Les coqs", "Les couleuvres", "Les crapauds", "Les crevettes", "Les crotales", "Les dingos",
-            "Les dragons", "Les Ècrevisses", "Les Ècureuils", "Les ÈlÈphants", "Les escargots", "Les fouines", "Les fourmis",
-            "Les gerbilles", "Les gibbons", "Les gorilles", "Les grenouilles", "Les grizzlis", "Les guÈpards",
-            "Les hamsters", "Les harpies", "Les hÈrons", "Les hyËnes", "Les iguanes", "Les jaguars", "Les krills",
-            "Les lapins", "Les lamas", "Les lÈzards", "Les limaces", "Les lions", "Les loups", "Les loutres", "Les lynx",
-            "Les macaques", "Les manchots", "Les marabouts", "Les mÈduses", "Les mouches", "Les mouflons", "Les moustiques",
-            "Les mulots", "Les nasiques", "Les okapis", "Les orques", "Les otaries", "Les ours", "Les panthËres", "Les pÈlicans",
+            "Les dragons", "Les √©crevisses", "Les √©cureuils", "Les √©l√©phants", "Les escargots", "Les fouines", "Les fourmis",
+            "Les gerbilles", "Les gibbons", "Les gorilles", "Les grenouilles", "Les grizzlis", "Les gu√©pards",
+            "Les hamsters", "Les harpies", "Les h√©rons", "Les hy√®nes", "Les iguanes", "Les jaguars", "Les krills",
+            "Les lapins", "Les lamas", "Les l√©zards", "Les limaces", "Les lions", "Les loups", "Les loutres", "Les lynx",
+            "Les macaques", "Les manchots", "Les marabouts", "Les m√©duses", "Les mouches", "Les mouflons", "Les moustiques",
+            "Les mulots", "Les nasiques", "Les okapis", "Les orques", "Les otaries", "Les ours", "Les panth√®res", "Les p√©licans",
             "Les perruches", "Les phoques", "Les poissons", "Les pumas", "Les putois", "Les pythons", "Les ragondis",
-            "Les rats", "Les renards", "Les requins", "Les rhinocÈros", "Les roussettes", "Les salamandres", "Les saumons",
+            "Les rats", "Les renards", "Les requins", "Les rhinoc√©ros", "Les roussettes", "Les salamandres", "Les saumons",
             "Les scorpions", "Les singes", "Les suricates", "Les tapirs", "Les taupes", "Les tigres", "Les tortues",
-            "Les urubus", "Les varans", "Les vers", "Les wallaby", "Les yacks", "Les zËbres"};
+            "Les urubus", "Les varans", "Les vers", "Les wallaby", "Les yacks", "Les z√®bres"};
 
-    public static String teamAdjectives[] = {"rigolos", "souriants", "r‚leurs", "admirables",
+    public static String teamAdjectives[] = {"rigolos", "souriants", "r√¢leurs", "admirables",
             "aimables", "bavarois", "nantais", "bouleversants", "charmants", "communs", "majestueux", "magnifiques",
-            "mÈdiocres", "mignons", "passionnants", "placides", "coquets", "cyniques", "dÈgueux", "disjonctÈs",
-            "douÈs", "Èblouissants", "efficaces", "drÙles", "Èmouvants", "Èpatants", "exaltants", "prodigieux",
+            "m√©diocres", "mignons", "passionnants", "placides", "coquets", "cyniques", "d√©gueux", "disjonct√©s",
+            "dou√©s", "√©blouissants", "efficaces", "dr√¥les", "√©mouvants", "√©patants", "exaltants", "prodigieux",
             "renversants", "sublimes", "sulfureux", "superbes", "exceptionnels", "exemplaires", "festifs",
             "flamboyants", "formidables", "grandioses", "hardis", "horribles", "inconnus", "innomables", "infernaux",
-            "insupportables", "intenables", "irrÈsistibles", "talentueux", "tragiques", "trÈpidants", "valeureux", "vitaminÈs",
+            "insupportables", "intenables", "irr√©sistibles", "talentueux", "tragiques", "tr√©pidants", "valeureux", "vitamin√©s",
             "vulgaires"};
     public static String names[] = {
-            "Emmanuel", "Vincent", "Thomas", "Patrick", "Virgile", "Nicolas", "Franck", "FÈlicien",
-            "Mathieu", "Jacky", "Maggy", "St?phanie", "AurÈlie", "Alan", "ValÈrie", "Sophie", "Maggy",
-            "FranÁois", "Thibault", "Ludovic", "Jean-Charles", "Christophe", "Julien", "RÈmi",
+            "Emmanuel", "Vincent", "Thomas", "Patrick", "Virgile", "Nicolas", "Franck", "F√©licien",
+            "Mathieu", "Jacky", "Maggy", "St√©phanie", "Aur√©lie", "Alan", "Val√©rie", "Sophie", "Maggy",
+            "Fran√ßois", "Thibault", "Ludovic", "Jean-Charles", "Christophe", "Julien", "R√©mi",
             "Carine", "Elise", "Erwan", "Florent", "Karen", "Emilie"
     };
 

@@ -167,4 +167,17 @@
     }
 %>
 
+<% if (session.getAttribute("admin") != null) { %>
+
+<h2>Fonctions spécifiques TV</h2>
+<div class="row">
+    <a href="tvEdit.jsp">
+        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span>
+            Paramètrer la TV
+        </button>
+    </a>
+</div>
+
+<% } %>
+
 <jsp:include page="footer.jsp"/>

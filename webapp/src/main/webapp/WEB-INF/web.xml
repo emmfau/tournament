@@ -16,6 +16,17 @@
         <url-pattern>/upload</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <description></description>
+        <display-name>UploadTvServlet</display-name>
+        <servlet-name>UploadTvServlet</servlet-name>
+        <servlet-class>fr.nacvolley.tournament.util.UploaderTv</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadTvServlet</servlet-name>
+        <url-pattern>/uploadtv</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>720</session-timeout>
     </session-config>

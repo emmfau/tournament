@@ -7,13 +7,13 @@
         <h4>
             <i>Et si on organisait un tournoi ? Bon par contre, faut gérer les équipes, les poules, les matchs, les
                 éliminatoires ... pfffff. Ce serait bien qu'on trouve un truc tout prêt, et qu'on puisse gérer le
-                tournoi facilement, et à
-                plusieurs. Genre un site web pour gérer un tournoi, qui marche sur ordinateur, tablette, ou smartphone ?
+                tournoi facilement et à
+                plusieurs. Genre une appli pour gérer un tournoi, qui marche sur ordinateur, tablette, ou smartphone ?
             </i>
         </h4>
 
         <p><span class="glyphicon glyphicon-thumbs-up"></span>
-            Bravo, vous venez de trouver un site qui fait çà !</p>
+            Bravo, vous venez de trouver une appli qui fait çà !</p>
     </div>
 
     <h1>Liste des tournois</h1>

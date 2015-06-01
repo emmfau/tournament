@@ -79,7 +79,8 @@
                 <li><a href="qualifs.jsp">Groupes de qualifs</a></li>
                 <li><a href="qualifMatchs.jsp">Matchs de qualifs</a></li>
                 <li><a href="finals.jsp">Finales</a></li>
-                <li><a href="admin.jsp">Paramètres</a></li>
+                <li><a href="tv/tv.jsp">TV</a></li>
+                <li><a href="admin.jsp">Parametres</a></li>
                 <% } %>
                 <li><a href="help.jsp"><span class="glyphicon glyphicon-question-sign"></span></a></li>
             </ul>
