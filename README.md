@@ -1,13 +1,9 @@
 tournament
 ==========
 
-Webapp for volley tournaments
-
-Application web java pour gérer un tournoi de volley
+Application web java pour gérer un tournoi de volley :
+- 06/2014 : Version initiale, utilisée pour le tournoi 2014
+- 05/2015 : Version mise à jour pour ajouter le mode TV
 
 Tech stack : maven, java, orientdb, bootstrap
-
-2 steps :
-- step 1 (in progress) : quick and dirty old JSP files
-- step 2 (later) : global refactor with java 8 (streams !) and REST services
 
