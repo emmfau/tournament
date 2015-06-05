@@ -11,6 +11,11 @@
     Equipes
 
 </h1>
+<a target="_new" href="tv/channelTeamsGallery.jsp">
+<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-camera"></span>
+    Voir la gallerie photo des équipes
+</button></a>
+<br>
 
 <table class="table table-striped">
 

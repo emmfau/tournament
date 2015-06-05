@@ -25,6 +25,7 @@
       window.location.href = "tvScreenRemove.jsp?screenId=" + encodeURIComponent(id);
     }
   }
+
 </script>
 <% } %>
 

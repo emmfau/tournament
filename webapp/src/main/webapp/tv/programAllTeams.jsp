@@ -16,7 +16,7 @@
 <%
   String teamPhotoFileName = team.getPhoto();
   if (teamPhotoFileName == null || teamPhotoFileName.equals("")) {
-    teamPhotoFileName="../images/background1.png";
+    teamPhotoFileName="../images/default.png";
   }
   else {
     teamPhotoFileName="../uploads/"+teamPhotoFileName;

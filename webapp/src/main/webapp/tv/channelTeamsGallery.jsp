@@ -1,8 +1,12 @@
+<jsp:include page="tvHeader.jsp"/>
+
+<jsp:include page="programAllTeams.jsp"/>
+
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.*" %>
 
 <%
-SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm"); // ou "d/M - HH:mm"
+  SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm"); // ou "d/M - HH:mm"
 %>
 <section data-state="endstate">
   <h2>...</h2>
@@ -46,7 +50,7 @@ SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm"); // ou "d/M - HH:mm"
   });
 
   Reveal.addEventListener( 'endstate', function() {
-    window.location.href='tv.jsp';
+    window.location.href='channelTeamsGallery.jsp';
   } );
 
 </script>

@@ -55,6 +55,7 @@ public class Randomizer {
         team.setPlayersNames(randomName() + " " + randomName() + " " + randomName());
         team.setPhone("06.12.34.56.78");
         team.setClub("Club " + randomTeamName());
+        team.setPhoto("default.png");
         return team;
     }
 

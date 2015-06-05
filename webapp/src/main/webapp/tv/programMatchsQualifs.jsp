@@ -32,12 +32,21 @@
         if (match.getState().equals(Match.WAIT) && matchsEnAttente.size()<3) {
           matchsEnAttente.add(match);
         }
-        else if (match.getState().equals(Match.PLAY) && matchsEnCours.size()<3) {
+        else if (match.getState().equals(Match.PLAY)) {
           matchsEnCours.add(match);
         }
-        else if (match.getState().equals(Match.END) && matchsTermines.size()<3) {
+        else if (match.getState().equals(Match.END)) {
           matchsTermines.add(match);
         }
+        // A la fin NE PRENDRE QUE LES 3 DERNIERS TERMINES
+        if (matchsTermines.size()>=3) {
+          ArrayList<Match> mt=new ArrayList<Match>();
+          mt.add(matchsTermines.get(matchsTermines.size()-3));
+          mt.add(matchsTermines.get(matchsTermines.size()-2));
+          mt.add(matchsTermines.get(matchsTermines.size()-1));
+          matchsTermines=mt;
+        }
+
 
       }
     }
@@ -137,10 +146,10 @@
     <tr>
       <td class="inactiveLeft">
         <br>
-        <img src="../uploads/<%=team1.getPhoto()%>"/><br><br>
+        <img width="1000px" src="../uploads/<%=team1.getPhoto()%>"/><br><br>
       </td>
       <td class="inactiveRight">
-        <br><img  src="../uploads/<%=team2.getPhoto()%>"/>
+        <br><img  width="1000px" src="../uploads/<%=team2.getPhoto()%>"/>
         <br><br>
       </td>
     </tr>
@@ -171,10 +180,10 @@
     <tr>
       <td class="inactiveLeft">
         <br>
-        <img src="../uploads/<%=team1.getPhoto()%>"/><br><br>
+        <img  width="1000px" src="../uploads/<%=team1.getPhoto()%>"/><br><br>
       </td>
       <td class="inactiveRight">
-        <br><img  src="../uploads/<%=team2.getPhoto()%>"/>
+        <br><img  width="1000px"  src="../uploads/<%=team2.getPhoto()%>"/>
         <br><br>
       </td>
     </tr>
@@ -207,10 +216,10 @@
     <tr>
       <td class="inactiveLeft">
         <br>
-        <img src="../uploads/<%=team1.getPhoto()%>"/><br><br>
+        <img  width="1000px" src="../uploads/<%=team1.getPhoto()%>"/><br><br>
       </td>
       <td class="inactiveRight">
-        <br><img  src="../uploads/<%=team2.getPhoto()%>"/>
+        <br><img  width="1000px"  src="../uploads/<%=team2.getPhoto()%>"/>
         <br><br>
       </td>
     </tr>
