@@ -1,53 +1,58 @@
 package fr.nacvolley.tournament.util;
 
-import com.orientechnologies.orient.object.db.OObjectDatabasePool;
-import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
-import fr.nacvolley.tournament.model.Tournament;
+import org.ektorp.CouchDbConnector;
+import org.ektorp.CouchDbInstance;
+import org.ektorp.http.HttpClient;
+import org.ektorp.http.StdHttpClient;
+import org.ektorp.impl.StdCouchDbConnector;
+import org.ektorp.impl.StdCouchDbInstance;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import java.util.logging.Logger;
 
 
 /**
- * https://github.com/orientechnologies/orientdb/wiki/Document-Database
- * If tomcat issue, may need to use OGlobalConfiguration.STORAGE_KEEP_OPEN.setValue( false );
- * Indexes : https://groups.google.com/forum/#!msg/orient-database/_uZXlWqBnLY/PWECusGm96UJ
+ * Using CouchDb database
  */
 public class Db {
 
-    public static final String DB_NAME = "tournament";
-    public static final String DB_LOGIN = "admin";
-    public static final String DB_PASSWORD = "admin";
-    public static final String ENV_VARIABLE_DB_URL = "TOURDATA_PORT_2424_TCP_ADDR";
-    public static String DB_URL = "remote:localhost/tournament"; // by default
-    private static Db instance;
+    public static Db instance=new Db();
 
-    /**
-     * class registration is needed only the first time, so you could register all needed domains in your application startup.
-     * Until orient server is up this registration will remain valid.
-     */
-    private Db() {
-        String hostname = "localhost"; // By default
+    public CouchDbConnector db;
+
+    private Logger log = Logger.getLogger(Db.class.getName());
+
+    private String dbUrl;
+
+    private String dbName;
+    public Db() {
         // 1. Register POJO
-        // Check environnement variable existence
-        if (System.getenv(ENV_VARIABLE_DB_URL) != null && !System.getenv(ENV_VARIABLE_DB_URL).equals("")) {
-            hostname = System.getenv(ENV_VARIABLE_DB_URL);
-            DB_URL = "remote:" + hostname + "/" + DB_NAME;
+        try {
+            InitialContext initCtx = new InitialContext();
+            Context envCtx = (Context)initCtx.lookup("java:comp/env");
+            dbUrl=(String)envCtx.lookup("dbUrl");
+            dbName=(String)envCtx.lookup("dbName");
         }
-        System.out.println("Using DB_URL : " + DB_URL);
-
-        OObjectDatabaseTx db = OObjectDatabasePool.global().acquire(DB_URL, DB_LOGIN, DB_PASSWORD);
-        db.getEntityManager().registerEntityClasses(Tournament.class.getPackage().getName());
-        db.close();
-
-    }
-
-    public static Db instance() {
-        if (instance == null) {
-            instance = new Db();
+        catch (Exception e) {
+            this.log.severe("Cannot get context environment variables (dbName, dbUrl), check context XML file : " + e.getMessage());
+            dbUrl="http://localhost:2001";
+            dbName="tournament";
+            this.log.warning("Using default dbUrl : "+dbUrl+", with default dbName : "+dbName);
         }
-        return instance;
-    }
 
-    public OObjectDatabaseTx get() {
-        return OObjectDatabasePool.global().acquire(DB_URL, DB_LOGIN, DB_PASSWORD);
+        try {
+            HttpClient httpClient = new StdHttpClient.Builder()
+                    .url(dbUrl)
+                    .build();
+
+            CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
+            db = new StdCouchDbConnector(dbName, dbInstance);
+            db.createDatabaseIfNotExists();
+        }
+        catch (Exception e) {
+            System.err.println("Error when opening DB : "+e.getMessage());
+        }
     }
 
 }

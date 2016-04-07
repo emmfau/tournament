@@ -5,7 +5,7 @@
     String screenId = (String) request.getParameter("screenId");
     TvScreen screen=tn.getTv().searchTvScreen(screenId);
     tn.getTv().getScreens().remove(screen);
-    tn.getTv().save();
+    tn.save();
 
     response.sendRedirect("tvEdit.jsp");
 %>

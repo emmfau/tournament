@@ -1,9 +1,9 @@
 package fr.nacvolley.tournament.model;
 
-import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
-import fr.nacvolley.tournament.util.Db;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.ektorp.support.CouchDbDocument;
+import org.ektorp.support.TypeDiscriminator;
 
-import javax.persistence.Transient;
 import java.util.UUID;
 
 public class Team {
@@ -20,7 +20,8 @@ public class Team {
     String photo = new String(); // url ?
     String state = new String(); // pr�inscrit, inscrit, pay�
     String comments = new String();
-    @Transient
+
+    //Make it transient if possible ? jsonIgnore ?
     TeamPoints teamPoints;
 
     public String getName() {
@@ -121,9 +122,7 @@ public class Team {
     }
 
     public void save() {
-        OObjectDatabaseTx db = Db.instance().get();
-        db.save(this);
-        db.close();
+        //TODO
     }
 
 }

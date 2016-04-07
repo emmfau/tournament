@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.nacvolley</groupId>
     <artifactId>tournament</artifactId>
-    <version>1.0</version>
+    <version>3.0</version>
     <packaging>war</packaging>
     <name>tournament.nacvolley.fr</name>
     <description>Tournament webapp for volley</description>
@@ -30,16 +30,7 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.orientechnologies</groupId>
-            <artifactId>orientdb-client</artifactId>
-            <version>1.6.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.orientechnologies</groupId>
-            <artifactId>orientdb-object</artifactId>
-            <version>1.6.4</version>
-        </dependency>
+
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
@@ -67,6 +58,16 @@
             <artifactId>imgscalr-lib</artifactId>
             <version>4.2</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.ektorp</groupId>
+            <artifactId>org.ektorp</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mitre.dsmiley.httpproxy</groupId>
+            <artifactId>smiley-http-proxy-servlet</artifactId>
+            <version>1.7</version>
         </dependency>
     </dependencies>
 

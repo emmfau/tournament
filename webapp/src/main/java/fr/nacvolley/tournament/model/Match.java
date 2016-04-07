@@ -1,8 +1,5 @@
 package fr.nacvolley.tournament.model;
 
-import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
-import fr.nacvolley.tournament.util.Db;
-
 import java.util.Date;
 import java.util.UUID;
 
@@ -21,6 +18,35 @@ public class Match {
     String field = new String();
 
     // For finals only
+    String nextMatchId;
+    String previousMatch1Id;
+    String previousMatch2Id;
+
+    public String getNextMatchId() {
+        return nextMatchId;
+    }
+
+    public void setNextMatchId(String nextMatchId) {
+        this.nextMatchId = nextMatchId;
+    }
+
+    public String getPreviousMatch1Id() {
+        return previousMatch1Id;
+    }
+
+    public void setPreviousMatch1Id(String previousMatch1Id) {
+        this.previousMatch1Id = previousMatch1Id;
+    }
+
+    public String getPreviousMatch2Id() {
+        return previousMatch2Id;
+    }
+
+    public void setPreviousMatch2Id(String previousMatch2Id) {
+        this.previousMatch2Id = previousMatch2Id;
+    }
+
+    /*
     Match nextMatch;
     Match previousMatch1;
     Match previousMatch2;
@@ -48,6 +74,8 @@ public class Match {
     public void setPreviousMatch2(Match previousMatch2) {
         this.previousMatch2 = previousMatch2;
     }
+    */
+
 
     public int getScore1() {
         return score1;
@@ -114,9 +142,7 @@ public class Match {
     }
 
     public void save() {
-        OObjectDatabaseTx db = Db.instance().get();
-        db.save(this);
-        db.close();
+        //TODO
     }
 
 }

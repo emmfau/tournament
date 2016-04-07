@@ -1,15 +1,19 @@
 package fr.nacvolley.tournament.model;
 
-import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
-import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import fr.nacvolley.tournament.util.Db;
+import fr.nacvolley.tournament.util.TournamentRepository;
+import org.ektorp.DocumentNotFoundException;
+import org.ektorp.support.CouchDbDocument;
+import org.ektorp.support.TypeDiscriminator;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-public class Tournament {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Tournament extends CouchDbDocument {
 
     public static final int ALL_PHASES=0;
 
@@ -26,6 +30,9 @@ public class Tournament {
     Date date;
     String comments = new String();
     String password = new String();
+
+    @TypeDiscriminator
+    int typeTournament=1;
 
     // All teams
     List<Team> teams = new ArrayList<Team>();
@@ -58,21 +65,20 @@ public class Tournament {
     Tv tv= new Tv(); // default tv s
 
     public static List<Tournament> listAll() {
-        OObjectDatabaseTx db = Db.instance().get();
-        List<Tournament> results = db.query(new OSQLSynchQuery<Tournament>("select * from Tournament"));
-        db.close();
+        List<Tournament> results=TournamentRepository.instance.getAll();
         return results;
     }
 
     public static Tournament load(String id) {
-        OObjectDatabaseTx db = Db.instance().get();
-        List<Tournament> results = db.query(new OSQLSynchQuery<Tournament>("select * from Tournament where id='" + id + "'"));
-        db.close();
-        if (results.size() > 0) {
-            return results.get(0);
-        } else {
-            return null;
+        Tournament result;
+        try {
+            result=TournamentRepository.instance.get(id);
         }
+        catch (DocumentNotFoundException dnfe) {
+            result=null;
+        }
+        return result;
+
     }
 
     public int getQualifTeamsInFinalPrincipal() {
@@ -277,9 +283,16 @@ public class Tournament {
     }
 
     public void save() {
-        OObjectDatabaseTx db = Db.instance().get();
-        db.save(this);
-        db.close();
+        TournamentRepository tournamentRepository=new TournamentRepository(Db.instance.db);
+        try  {
+            tournamentRepository.get(getId());
+            // Document found => update it
+            tournamentRepository.update(this);
+        }
+        catch (DocumentNotFoundException dnfe) {
+            // Document not found => add it
+            tournamentRepository.add(this);
+        }
     }
 
     public Team searchTeam(String teamId) {
@@ -297,5 +310,13 @@ public class Tournament {
 
     public void setTv(Tv tv) {
         this.tv = tv;
+    }
+
+    public int getTypeTournament() {
+        return typeTournament;
+    }
+
+    public void setTypeTournament(int typeTournament) {
+        this.typeTournament = typeTournament;
     }
 }

@@ -1,8 +1,5 @@
 package fr.nacvolley.tournament.model;
 
-import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
-import fr.nacvolley.tournament.util.Db;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -64,9 +61,7 @@ public class Tv {
     }
 
     public void save() {
-        OObjectDatabaseTx db = Db.instance().get();
-        db.save(this);
-        db.close();
+        //TODO
     }
 
 

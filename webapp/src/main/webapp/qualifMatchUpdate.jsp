@@ -28,7 +28,9 @@
     currentMatch.setScore2(Integer.parseInt((String) request.getParameter("score2")));
     currentMatch.setState((String) request.getParameter("state"));
     currentMatch.setField((String) request.getParameter("field"));
-    currentMatch.save();
+    //currentMatch.save();
+    // TODO : quick fix done for couchdb test, but prefer save each match individually to avoid conflicts
+    tn.save();
 
     response.sendRedirect("qualifMatchs.jsp");
 %>

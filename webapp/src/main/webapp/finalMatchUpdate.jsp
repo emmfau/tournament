@@ -25,12 +25,13 @@
                 if (match.getId().equals(matchId)) {
                     currentMatch = match;
                     currentMatchIndex = tour.getMatchs().indexOf(match);
-                    nextMatchId = currentMatch.getNextMatch().getId();
+                    nextMatchId = currentMatch.getNextMatchId();
                     currentMatch.setScore1(Integer.parseInt((String) request.getParameter("score1")));
                     currentMatch.setScore2(Integer.parseInt((String) request.getParameter("score2")));
                     currentMatch.setState((String) request.getParameter("state"));
                     currentMatch.setField((String) request.getParameter("field"));
-                    currentMatch.save();
+                    //currentMatch.save();
+                    // TODO : quick fix done for couchdb test, but prefer save each match individually to avoid conflicts
 
                 }
 
@@ -55,7 +56,9 @@
                             }
                         }
                     }
-                    match.save();
+                    //match.save();
+                    // TODO : quick fix done for couchdb test, but prefer save each match individually to avoid conflicts
+
                 }
 
             }
@@ -63,6 +66,8 @@
         }
     }
 
+    // TODO : quick fix done for couchdb test, but prefer save each match individually to avoid conflicts
+    tn.save();
 
     response.sendRedirect("finals.jsp");
 %>

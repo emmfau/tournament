@@ -1,8 +1,5 @@
 package fr.nacvolley.tournament.model;
 
-import com.orientechnologies.orient.object.db.OObjectDatabaseTx;
-import fr.nacvolley.tournament.util.Db;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -150,7 +147,7 @@ public class Group {
         Tour firstTour = new Tour();
         firstTour.setMatchs(matchs);
         createNextTour(firstTour);
-        save();
+        // TODO : save it !
     }
 
     private void createNextTour(Tour previousTour) {
@@ -163,12 +160,12 @@ public class Group {
             if (currentMatchNumber == 1) {
                 // Create new Match for this new tour
                 nextMatch = new Match();
-                nextMatch.setPreviousMatch1(match);
-                match.setNextMatch(nextMatch);
+                nextMatch.setPreviousMatch1Id(match.getId());
+                match.setNextMatchId(nextMatch.getId());
                 currentMatchNumber = 2;
             } else {
-                nextMatch.setPreviousMatch2(match);
-                match.setNextMatch(nextMatch);
+                nextMatch.setPreviousMatch2Id(match.getId());
+                match.setNextMatchId(nextMatch.getId());
                 currentTour.getMatchs().add(nextMatch);
                 currentMatchNumber = 1;
             }
@@ -178,12 +175,5 @@ public class Group {
             createNextTour(currentTour);
         }
     }
-
-    public void save() {
-        OObjectDatabaseTx db = Db.instance().get();
-        db.save(this);
-        db.close();
-    }
-
 
 }

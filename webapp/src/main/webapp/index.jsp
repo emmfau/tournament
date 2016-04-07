@@ -42,7 +42,11 @@
                     <%=tn.getName()%>
                 </a>
             </td>
-            <td><%=sdf.format(tn.getDate())%>
+            <td><%
+                if (tn.getDate()!=null) {
+                    sdf.format(tn.getDate());
+                }
+                %>
             </td>
             <td>
 

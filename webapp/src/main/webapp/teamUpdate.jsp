@@ -25,10 +25,8 @@
 
     if (isNew) {
         tn.getTeams().add(team);
-        tn.save();
-    } else {
-        team.save();
     }
+    tn.save();
 
     response.sendRedirect("teams.jsp");
 %>

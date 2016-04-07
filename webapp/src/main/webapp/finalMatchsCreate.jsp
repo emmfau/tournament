@@ -117,6 +117,8 @@
     tn.getFinalGroups().add(mainGroup);
     tn.getFinalGroups().add(otherGroup);
 
+
+    // TODO : In each match, previousmatch and nextmatch cause infinites loops => change with ids
     tn.save();
     response.sendRedirect("finals.jsp");
 %>

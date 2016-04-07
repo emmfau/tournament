@@ -19,10 +19,9 @@
 
     if (isNew) {
         tn.getTv().getScreens().add(screen);
-        tn.getTv().save();
-    } else {
-        tn.getTv().save();
+
     }
+    tn.save();
 
     response.sendRedirect("tvEdit.jsp");
 %>
